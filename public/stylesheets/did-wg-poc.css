@@ -1,0 +1,419 @@
+.my_Container {
+    display: grid;
+    place-items: center;
+    /*-- border: 0px solid #1b0303; --*/
+    box-sizing: border-box;
+    width: 100%;
+    height: auto;
+    word-break: break-all; 
+}
+  
+.my_Box {
+    margin: 10px 0px 20px 0px;
+    /*-- border: 1px solid #1b0303; --*/
+    width: 90%;
+    max-width: 1024px;
+    height: auto;
+    word-break: break-all; 
+}
+
+.my_Box-Center {
+    display: grid;
+    place-items: center;
+    /*--border: 1px solid #DE6901; /*-- オレンジ --*/
+    width: 100%;
+    max-width: 1024px;
+    height: auto;
+    word-break: break-all; 
+}
+
+.my_Box-BackImage {
+    margin: 10px 0px 20px 0px;
+    /*-- border: 1px solid #1b0303; --*/
+    width: 95%;
+    max-width: 1024px;
+    height: 100px;
+    padding-top: 50px;
+    word-break: break-all; 
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-position:center bottom;   /* 画像の表示位置を指定 */
+}
+
+.my_Box-Note {
+    width: 90%;
+    max-width: 1024px;
+    height: auto;
+    word-break: break-word; 
+    position: relative;
+    margin: 2em 0em 0.5em 0em;
+    padding: 0.5em 0em 1.5em 0em;
+    border: solid 3px #999999;
+    border-radius: 8px;
+}
+
+.my_Box-Note .box-title {
+    position: absolute;
+    display: inline-block;
+    top: -13px;
+    left: 10px;
+    padding: 0 9px;
+    line-height: 1;
+    font-size: 19px;
+    background: #FFF;
+    color: #555555;
+    font-weight: bold;
+}
+
+.my_Box-Note p {
+    margin: 0em; 
+    padding: 1em 1em 0.5em 1em;
+    word-break: break-word; 
+}
+
+.my_Box-Note ol {
+    margin: 1em 1em 0.5em 1em;
+}
+
+.m0 {
+    margin: 0.2em 0 0.5em 0;
+}
+ 
+.m1 {
+    margin: 0.2em 0 0.5em 0em;
+    padding-left: 3em;
+    text-indent: -3em;
+}
+
+.my_Table {
+    width: 100%;
+    border-top: solid 2px #333;
+    border-bottom: solid 2px #333;
+    border-collapse: collapse;
+    background: #fff;
+    font-size: 18px;
+}
+  
+.my_Table-Head-Row {
+    border-top: solid 2px #333;
+    border-bottom: solid 2px #333;
+}
+
+.my_Table-Head-Row-Cell {
+    padding-top: 0.1em;
+    padding-bottom: 0.02em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.my_Table-Body-Row {
+    border-top: solid 1px #333;
+    border-bottom: solid 1px #333;
+}
+
+.my_Table-Body-Row-Cell {
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
+
+.my_Text {
+  
+}
+  
+.my_Button {
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+    width: 300px;
+    padding: 1.2em 2em;
+    border: 1px solid #DDDDDD;
+    border-radius: 5px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #GGG;
+    transition: 0.3s ease-in-out;
+}
+
+.my_Button:after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    width: 5px;
+    height: 5px;
+    border-top: solid 3px #333333;
+    border-right: solid 3px #333333;
+    transform: rotate(45deg);
+}
+
+.my_Button:hover {
+      background: #313131;
+      color: #FFF;
+}
+
+.my_Button:hover:after {
+      border-color: #FFF;
+}
+
+.my_Form {
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+  max-width: 1024px;
+}
+
+.my_Form-Item {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  /*-- border: 1px solid #9aef4b; /*-- 緑 --*/
+}
+
+.my_Form-Item-Block {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  width: 100%;
+  display: block;
+  align-items: center;
+  /*-- border: 1px solid #9aefFF; /*-- 水色 --*/
+}
+
+.my_Form-Item:nth-child(5) {
+
+}
+
+.my_Form-Item-Label {
+  width: 100%;
+  max-width: 300px;
+  letter-spacing: 0em;
+  font-weight: bold;
+  font-size: 18px;
+  /*-- border: 1px solid #9a20FF; /*-- 紫 --*/
+}
+
+.my_Form-Item-Label.isMsg {
+  margin-top: 8px;
+  margin-bottom: auto;
+}
+
+.my_Form-Item-Label-Required {
+  border-radius: 6px;
+  margin-right: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  width: 48px;
+  display: inline-block;
+  text-align: center;
+  background: #545454;
+  color: #fff;
+  font-size: 14px;
+}
+
+.my_Form-Item-Text {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 20px;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 48px;
+  flex: 1;
+  width: 100%;
+  max-width: 450px;
+  background: #eaedf2;
+  font-size: 18px;
+}
+
+.my_Form-Item-Textarea {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 20px;
+  padding-left: 1em;
+  padding-right: 1em;
+  height: 216px;
+  flex: 1;
+  width: 100%;
+  max-width: 410px;
+  background: #eaedf2;
+  font-size: 18px;
+}
+
+.my_Form-Item-Radio {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 36px;
+  flex: 1;
+  width: 100%;
+  max-width: 36px;
+  background: #eaedf2;
+}
+
+.my_Form-Btn {
+  border-radius: 6px;
+  margin-top: 32px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 280px;
+  display: block;
+  letter-spacing: 0.05em;
+  background: #545454;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 959px) {
+    .my_Container {
+        font-size: 90%;  
+    }
+    .my_Table {
+        font-size: 90%;
+    }
+    .my_RadioInput-LabelText {
+        font-size: 90%;      
+    }
+    .my_Form {
+        margin-top: 10px;
+    }
+    .my_Form-Item {
+        padding-left: 14px;
+        padding-right: 14px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        flex-wrap: wrap;
+        width: 95%;
+    }
+    .my_Form-Item-Block {   
+        padding-top: 0px;
+        padding-bottom: 0px;
+        width: 100%;
+    }
+    .my_Form-Item-Label {
+        max-width: inherit;
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+    }
+    .my_Form-Item-Label.isMsg {
+        margin-top: 0;
+    }
+    .my_Form-Item-Label-Required {
+        border-radius: 4px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        width: 32px;
+        font-size: 10px;
+    }
+    .my_Form-Item-Text {
+        margin-left: 0px;
+        margin-top: 0px;
+        height: 40px;
+        flex: inherit;
+        max-width: 400px;
+        font-size: 15px;
+    }
+    .my_Form-Item-Textarea {
+        margin-top: 18px;
+        margin-left: 0;
+        height: 200px;
+        flex: inherit;
+        font-size: 15px;
+    }
+    .my_Form-Item-Radio {
+        margin-left: 0px;
+        height: 24px;
+        max-width: 24px;
+        background: #eaedf2;
+    }
+    .my_Form-Btn {
+        margin-top: 24px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        width: 160px;
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .my_Container {
+        font-size: 85%;  
+    }
+    .my_Table {
+        font-size: 85%;
+    }
+    .my_RadioInput-LabelText {
+        font-size: 85%;      
+    }
+    .my_Form {
+        margin-top: 10px;
+    }
+    .my_Form-Item {
+        padding-left: 14px;
+        padding-right: 14px;
+        padding-top: 16px;
+        padding-bottom: 16px;
+        flex-wrap: wrap;
+        width: 90%;
+    }
+    .my_Form-Item-Block {   
+        padding-top: 0px;
+        padding-bottom: 0px;
+        width: 100%;
+    }
+    .my_Form-Item-Label {
+        max-width: inherit;
+        display: flex;
+        align-items: center;
+        font-size: 15px;
+    }
+    .my_Form-Item-Label.isMsg {
+        margin-top: 0;
+    }
+    .my_Form-Item-Label-Required {
+        border-radius: 4px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        width: 32px;
+        font-size: 10px;
+    }
+    .my_Form-Item-Text {
+        margin-left: 0px;
+        margin-top: 0px;
+        height: 40px;
+        flex: inherit;
+        max-width: 400px;
+        font-size: 15px;
+    }
+    .my_Form-Item-Textarea {
+        margin-top: 18px;
+        margin-left: 0;
+        height: 200px;
+        flex: inherit;
+        font-size: 15px;
+    }
+    .my_Form-Item-Radio {
+        margin-left: 0px;
+        height: 24px;
+        max-width: 24px;
+        background: #eaedf2;
+    }
+    .my_Form-Btn {
+        margin-top: 24px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        width: 160px;
+        font-size: 16px;
+    }
+}

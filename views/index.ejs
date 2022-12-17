@@ -1,11 +1,141 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="ja">
+
+<head>
+    <title>DIDチケット</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="stylesheets/did-wg-poc.css">
+</head>
+    <body>
+
+        <div class="my_Container">
+
+            <div class="my_Box-BackImage" style="background-image: url('images/kamata-gig.png');">
+                <h1>KAMATA GIG III</h1>
+            </div>
+
+            <div class="my_Box-Center">
+                <div class="my_Box" style="width: 90%;">
+                    <p class="m0"><b>日時：</b>2023年2月11日（土）17:30 開場</p>
+                    <p class="m1"><b>会場：</b><a href="http://neweight.tokyo/">ニューエイト</a><br>
+                    東京都大田区蒲田5-44-14 蒲田佐藤ビルB1F</p>
+                    <p class="m0"><b>入場料：</b>500円（ドリンクチケット代）</p>
+                    <p class="m1"><b>特典：</b>入場時に下記デジタルチケットを提示いただければ、先着40名様までドリンクチケット分も無料にさせていただきます。<br>
+                    なお、後日、デジタルチケット利用に関するアンケートにもご協力をお願いします。<br>
+                    デジタルチケットの申込方法は下記を参照ください。
+                    </p>
+                </div>
+            </div>
+
+            <div class="my_Box-Center">
+                <div class="my_Box" style="width:90%">
+                    <table class="my_Table">
+                        <thead class="my_Table-Head">
+                            <tr class="my_Table-Head-Row">
+                                <th class="my_Table-Head-Row-Cell">Time</th>
+                                <th class="my_Table-Head-Row-Cell">Band</th>
+                                <th class="my_Table-Head-Row-Cell">Members</th>
+                            </tr>
+                        </thead>
+                        <tbody class="my_Table-Body">
+                            <tr class="my_Table-Body-Row">
+                                <td class="my_Table-Body-Row-Cell" align="center">18:00-18:40</td>
+                                <td class="my_Table-Body-Row-Cell">IIJ けいおん部<br>ブルースブラザーズバンド</td>
+                                <td class="my_Table-Body-Row-Cell">秋和 裕<br>山本 岳洋<br>堤 幸史<br>桃井 康成<br>三竹 秀尚<br>埜下 晃平<br>渡辺勇太</td>
+                            </tr>
+                            <tr class="my_Table-Body-Row">
+                                <td class="my_Table-Body-Row-Cell" align="center">18:50-19:30</td>
+                                <td class="my_Table-Body-Row-Cell">ARP</td>
+                                <td class="my_Table-Body-Row-Cell">沖田 誠司<br>沖田友人</td>
+                            </tr>
+                            <tr class="my_Table-Body-Row">
+                                <td class="my_Table-Body-Row-Cell" align="center">19:40-20:20</td>
+                                <td class="my_Table-Body-Row-Cell">ONOBAND</td>
+                                <td class="my_Table-Body-Row-Cell">沖田友人の取引先</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="my_Box-Note">
+                <span class="box-title">デジタルチケット申込手順</span>
+                <ol>
+                    <li>事前にMicrosoft Authenticator をスマホにインストール</li>
+                    <li>下記フォームにて、メールアドレス入力後、「デジタルチケット申込」ボタンをクリック</li>
+                    <li>入力されたメールアドレス宛に「デジタルチケットダウンロード」ページへのリンクをメールで送付</li>
+                    <li>リンクからアクセスするページにて、知り合いのバンドを選択して「デジタルチケットダウンロード」ボタンをクリックするとQRコードが表示</li>
+                    <li>Authenticatorアプリを起動</li>
+                    <li>下部ナビゲーションバーの右アイコン「検証済みID」をタップ</li>
+                    <li>上部アプリバーの右アイコンをタップしてカメラを起動</li>
+                    <li>4. で表示されたQRコードを 7. で起動したカメラで読み込み</li>
+                    <li>デジタルチケットがダウンロードされるので保存</li>
+                </ol>
+                <p>上記手順の 4. でアクセスするリンクをスマホでアクセスすると 5. のAuthenticatorは自動的に起動されます。</p>
+                <p>＜Authenticator操作画面説明＞</p>
+                <p style="margin-left: 1em;">下部ナビゲーションバーの右アイコン（検証済みID）</p>
+                <p style="margin-left: 2em;"><img src="images/vcicon.png" alt="下部ナビゲーションバーの右アイコン" style="width: 300px; height:auto; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);"></p>
+                <p style="margin-left: 1em;">上部アプリバーの右アイコン</p>
+                <p style="margin-left: 2em;"><img src="images/readericon.png" alt="上部アプリバーの右アイコン" style="width: 300px; height:auto; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);"></p>
+            </div>
+
+            <div class="my_Box-Note">
+                <span class="box-title">申込フォーム</span>
+                <div class="my_Form">
+
+                    <form
+                        class="my_Box_Form"
+                        method="POST"
+                        action="/sendmail"
+                        enctype="multipart/form-data"
+                    >
+                        <div class="my_Form-Item">
+                            <p class="my_Form-Item-Label">
+                            <span class="my_Form-Item-Label-Required">必須</span>
+                            メールアドレス
+                            </p>
+                            <div class="my_Form-Item">
+                                <input type="text" class="my_Form-Item-Text" id="email" name="email" placeholder="Emailアドレス" required/>
+                            </div>
+                        </div>
+
+                        <div class="my_Form-Item">
+                            <p class="my_Form-Item-Label">
+                            <span class="my_Form-Item-Label-Required">必須</span>
+                            <a href="#personal-info">個人情報取扱いについて</a>
+                            </p>
+
+                            <div class="my_Form-Item">
+                                <input type="checkbox" class="my_Form-Item-Radio" id="consent" name="consent" required/>
+                                <label for="consent">同意します</label>
+                            </div>
+                        </div>
+
+                        <div class="my_Box-Center">
+                            <label>
+                                <button class="my_Button" type="submit" name="button">デジタルチケット申込</button>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="my_Box-Note">
+                <span class="box-title"><a id="personal-info">個人情報取扱いについて</a></span>
+                <p>お預かりした個人情報、および個人データ（以下、「個人情報」）の取扱いについて、以下のとおり適正かつ安全に管理・運用することに努めます。</p>
+                <p>1. 利用目的<br>
+                取得する個人情報は、本サービスの維持向上を図るためのアンケート調査、分析のためにのみ利用します。</p>
+                <p>2. 第三者提供<br>
+                いかなる場合においても個人情報を第三者へ提供することはしません。</p>
+                <p>3. 開示請求<br>
+                お預かりした個人情報について、ご本人には、開示・訂正・削除・利用停止を請求する権利があります。手続きにあたっては、ご本人確認のうえ対応させていただきますが、代理人の場合も可能です。詳細については、以下「個人情報相談窓口」へご連絡ください。</p>
+                <p>[個人情報相談窓口]<br>IIJ did-wg 事務局<br>E-mail: did-wg@iij.ad.jp</p>
+
+            </div>
+
+            <div class="my_Box-Center">
+                <p>Copyright (c) IIJ did-wg All Rights Reserved.</p>
+            </div>
+        </div>
+    </body>
 </html>
