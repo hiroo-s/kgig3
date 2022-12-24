@@ -13,42 +13,96 @@
             <div class="my_Box-BackImage" style="background-image: url('images/kamata-gig.png');"">
                 <h1>KAMATA GIG III</h1>
             </div>
-  
+
             <div class="my_Box-Center">
 
-                <div class="my_Box" style="width: 70%;">
-                    <h2>受付番号： 10</h2>
-                    <h4>2023/2/11 17:03</h4>
-                    <p class="m0">
+                <div class="my_Box" style="width: 70%">
+                    <h2><div id="seqnum"></div></h2>
+                    <h4><div id="tstamp"></div></h4>
+                    <p class="m0" id="stage1" style="display: none">
                         ご来場ありがとうございます！！<br>
                         ドリンクチケットをお受け取りください。<br>
                         受け取り後に下記ボタンを押してください<br>
+                    </p>
+                    <p class="m0" id="stage2" style="display: none">
+                        お帰りなさい！<br>
+                        ドリンクチケットをまだお受け取りしていないようです。<br>
+                        受け取り後に下記ボタンを押してください<br>
+                    </p>
+                    <p class="m0" id="stage3" style="display: none">
+                        お帰りなさい！<br>
+                        すでにチェックイン済です<br>
                     </p>
                 </div>
             </div>
 
             <div class="my_Box-Center">
-                <form
-                class="my_Box_Form"
-                method="POST"
-                action="https://XXXXXXXXXXX"
-                enctype="multipart/form-data"
-                >
-            
-                    <label>
-                        <button class="my_Button" type="submit" name="button">ドリンクチケット<br>受け取りました</button>
-                    </label>
-            
-                </form>
-
+                <label>
+                    <button id="drink" class="my_Button" type="submit" name="button" style="display: none" onClick="drink()">ドリンクチケット<br>受け取りました</button>
+                </label>
             </div>
 
             <div class="my_Box-Center">
                 <p>Copyright (c) IIJ did-wg All Rights Reserved.</p>
-            </div>    
+            </div>
 
-    
-        </div>    
-  
+
+        </div>
+
     </body>
+    <script>
+        let domseq = document.getElementById("seqnum");
+        let domtstamp = document.getElementById("tstamp");
+
+        let seqnum = <%= user.seqnum %>;
+        let ts = new Date("<%= user.verified %>");
+        domseq.innerText = "受付番号：" + seqnum;
+        domtstamp.innerText = ts.toLocaleString('ja-JP').slice(0,-3);
+
+        let stage = 1;
+        if (<%= !!user.again %>) {
+            stage = 2;
+        }
+        if (<%= !!user.received %>) {
+            stage = 3;
+        }
+
+        displayMsg(stage);
+
+        function displayMsg(stage) {
+            let msg1 = document.getElementById("stage1");
+            let msg2 = document.getElementById("stage2");
+            let msg3 = document.getElementById("stage3");
+            let button = document.getElementById("drink");
+
+            if (stage == 1) {
+                msg1.style.display = "block";
+                msg2.style.display = "none";
+                msg3.style.display = "none";
+                button.style.display = "block";
+
+            } else if (stage == 2) {
+                msg1.style.display = "none";
+                msg2.style.display = "block";
+                msg3.style.display = "none";
+                button.style.display = "block";
+
+            } else if (stage == 3) {
+                msg1.style.display = "none";
+                msg2.style.display = "none";
+                msg3.style.display = "block";
+                button.style.display = "none";
+            }
+        }
+
+        function drink() {
+            fetch("/confirm")
+            .then(response => response.json())
+            .catch(error => {console.log(error)})
+            .then(response => {
+                console.log(response);
+                displayMsg(3);
+            });
+        }
+    </script>
 </html>

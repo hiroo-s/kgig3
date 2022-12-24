@@ -1,0 +1,102 @@
+<html>
+<meta charset="utf-8">
+
+<head>
+  <title>リスト</title>
+  <link rel="stylesheet" href="https://unpkg.com/react-table@6.11.5/react-table.css">
+  <script src="https://unpkg.com/react@18.2.0/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  <script src="https://unpkg.com/dexie@3.0.2/dist/dexie.min.js"></script>
+  <script src="https://unpkg.com/react-table@6.11.5/react-table.js"></script>
+</head>
+
+<body>
+<script>
+    var ReactTable = window.ReactTable.default;
+    var useState = window.React.useState;
+    async function getData() {
+        let d = await axios.get('/op/list');
+        return d.data;
+    }
+
+    function dateLocaleString(d) {
+        if (!d) {
+            return d;
+        }
+        return new Date(d).toLocaleString('ja-JP');
+    }
+
+    let cols = [
+        {
+            Header: 'メールアドレス',
+            accessor: 'username',
+        },
+        {
+            Header: 'UUID',
+            accessor: 'uuid',
+        },
+        {
+            Header: 'バンド',
+            accessor: 'band'
+        },
+        {
+            Header: 'メール送信数',
+            accessor: 'mailCount',
+        },
+        {
+            Header: '(最終)メール送信日',
+            accessor: 'mailDate',
+            Cell: props => {return React.createElement('div', {style: {textAlign: "center"}}, dateLocaleString(props.value));}
+        },
+        {
+            Header: '(最終)VC発行日',
+            accessor: 'issued',
+            Cell: props => {return React.createElement('div', {style: {textAlign: "center"}}, dateLocaleString(props.value));}
+        },
+        {
+            Header: '受付番号',
+            accessor: 'seqnum'
+        },
+        {
+            Header: '(最終)検証日時',
+            accessor: 'verified',
+            Cell: props => {return React.createElement('div', {style: {textAlign: "center"}}, dateLocaleString(props.value));}
+        },
+        {
+            Header: 'ドリンク受け取り日時',
+            accessor: 'received',
+            Cell: props => {return React.createElement('div', {style: {textAlign: "center"}}, dateLocaleString(props.value));}
+        }
+    ];
+</script>
+<div id="root"></div>
+<script type="text/babel">
+    getData().then(data => {
+        console.log(data);
+        const t = <ReactTable data={data} columns={cols} />
+
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(t);
+    });
+</script>
+</body>
+<style>
+    .square {
+      background: #fff;
+      border: 1px solid #999;
+      float: left;
+      font-size: 24px;
+      font-weight: bold;
+      line-height: 34px;
+      height: 34px;
+      margin-right: -1px;
+      margin-top: -1px;
+      padding: 0;
+      text-align: center;
+      width: 34px;
+    }
+</style>
+</html>

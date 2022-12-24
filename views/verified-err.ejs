@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>DIDチケット 入場確認</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <link rel="stylesheet" href="/stylesheets/did-wg-poc.css">
+</head>
+    <body>
+
+        <div class="my_Container">
+
+            <div class="my_Box-BackImage" style="background-image: url('images/kamata-gig.png');">
+                <h1>KAMATA GIG III</h1>
+            </div>
+
+            <div class="my_Box-Center">
+
+                <div class="my_Box" style="width: 80%;">
+                    <h2><font color="red">有効なチケットを確認できませんでした</font></h2>
+                    <h4><div id="tstamp"></div></h4>
+                    <p class="m0">
+                        デジタルチケットをお求めください<br>
+                    </p>
+                    <p>＜ <a href="/">デジタルチケット案内ページ</a></p>
+                </div>
+            </div>
+
+            <div class="my_Box-Center">
+                <small>Copyright (c) IIJ did-wg All Rights Reserved.</small>
+            </div>
+
+
+        </div>
+
+    </body>
+    <script>
+        let domtstamp = document.getElementById("tstamp");
+        domtstamp.innerText = new Date().toLocaleString('ja-JP').slice(0,-3);
+    </script>
+</html>

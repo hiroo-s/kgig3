@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <title>DIDチケット</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
+    <link rel="stylesheet" href="/stylesheets/did-wg-poc.css">
+    <script src="/javascripts/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/modaal.min.css">
+    <script src="/javascripts/modaal.min.js"></script>
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+    <body>
+
+        <div class="my_Container">
+
+            <div class="my_Box-BackImage" style="background-image: url('/images/kamata-gig.png');">
+                <h1>KAMATA GIG III</h1>
+            </div>
+
+            <div class="my_Box-Center">
+                <div class="my_Box">
+                    <h2>デジタルチケットダウンロード</h2>
+                    <p class="m0"><b>日時：</b>2023年2月11日（土）17:30 開場</p>
+                    <p class="m1"><b>会場：</b><a href="http://neweight.tokyo/">ニューエイト</a><br>
+                    東京都大田区蒲田5-44-14 蒲田佐藤ビルB1F</p>
+                </div>
+            </div>
+
+            <div class="my_Box-Note">
+                <span class="box-title">デジタルチケットダウンロード手順</span>
+                <ol>
+                    <li>事前にMicrosoft Authenticator をスマホにインストール</li>
+                    <li>下記フォームにて、知り合いのバンドを選択後、「デジタルチケットダウンロード」ボタンをクリックするとQRコードが表示</li>
+                    <li>Authenticatorアプリを起動</li>
+                    <li>下部ナビゲーションバーの右アイコン「検証済みID」をタップ</li>
+                    <li>上部アプリバーの右アイコンをタップしてカメラを起動</li>
+                    <li>2. で表示されたQRコードを 5. で起動したカメラで読み込み</li>
+                    <li>デジタルチケットがダウンロードされるので保存</li>
+                </ol>
+                <p>スマホでダウンロードフォームを操作すると 3. のAuthenticatorは自動的に起動されます。</p>
+                <p>＜Authenticator操作画面説明＞</p>
+                <p style="margin-left: 1em;">下部ナビゲーションバーの右アイコン（検証済みID）</p>
+                <p style="margin-left: 2em;"><img src="/images/vcicon.png" alt="下部ナビゲーションバーの右アイコン" style="width: 285px; height:auto; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);"></p>
+                <p style="margin-left: 1em;">上部アプリバーの右アイコン</p>
+                <p style="margin-left: 2em;"><img src="/images/readericon.png" alt="上部アプリバーの右アイコン" style="width: 285px; height:auto; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);"></p>
+
+            </div>
+
+
+            <div class="my_Box-Note">
+                <span class="box-title">デジタルチケットダウンロードフォーム</span>
+                <div class="my_Form">
+
+                        <div class="my_Form-Item" style="align-items: flex-start;">
+                            <p class="my_Form-Item-Label">
+                            <span class="my_Form-Item-Label-Required">必須</span>
+                            知り合いのバンドを選択
+                            </p>
+
+                            <div class="my_Form-Item-Block">
+                                <div class="my_Form-Item" style="flex-wrap: no-wrap;">
+                                    <input type="radio" class="my_Form-Item-Radio" id="band1" name="band" value="IIJ"/>
+                                    <label for="band1" style="display: block; float: left; box-sizing: content-box; width: 80%;">
+                                    IIJ けいおん部<br>ブルースブラザーズバンド
+                                    </label>
+                                </div>
+
+                                <div class="my_Form-Item" style="flex-wrap: no-wrap;">
+                                    <input type="radio" class="my_Form-Item-Radio" id="band2" name="band" value="ARP"/>
+                                    <label for="band2" style="display: block; float: left; box-sizing: content-box; width: 80%;">
+                                    ARP
+                                    </label>
+                                </div>
+
+                                <div class="my_Form-Item" style="flex-wrap: no-wrap;">
+                                    <input type="radio" class="my_Form-Item-Radio" id="band3" name="band" value="ONOBAND"/>
+                                    <label for="band3" style="display: block; float: left; box-sizing: content-box; width: 80%;">
+                                    ONOBAND
+                                    </label>
+                                </div>
+
+                                <div class="my_Form-Item" style="flex-wrap: no-wrap;">
+                                    <input type="radio" class="my_Form-Item-Radio" id="band4" name="band" value="N/A"/>
+                                    <label for="band4" style="display: block; float: left; box-sizing: content-box; width: 80%;">
+                                    （誰も知らない）
+                                    </label>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="my_Box-Center">
+                            <label>
+                                <button class="my_Button" type="submit" name="button">デジタルチケット<br>ダウンロード</button>
+                            </label>
+                        </div>
+                </div>
+            </div>
+
+            <div class="my_Box-Center">
+                <small>Copyright (c) IIJ did-wg All Rights Reserved.</small>
+            </div>
+
+            <!--モーダル-->
+            <div id="issue_vc" class="issue_vc" style="display:none;">
+                <p class="small-text">
+                Microsoft Authenticator でスキャンするとデジタルチケットをダウンロードできます
+                </p>
+                <div id="qrText">
+                    <br><div id="qrcode"></div><br>
+                </div>
+            </div>
+            <div id="error_vc" class="error_vc" style="display:none;">
+                <p class="error">
+                エラーが発生しました
+                </p>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        let interval;
+        let count = 300;
+
+        function checkStatus () {
+            count--;
+            if (count < 0) {
+                clearInterval(interval);
+                $('.issue_vc').modaal('close');
+                $(".error_vc").modaal('open');
+            }
+            // ２秒ごとに fetch する
+            if (count % 2) {
+                return;
+            }
+            fetch("/chk")
+            .then(response => response.text())
+            .catch(error => {console.log(error)})
+            .then(response => {
+                if (response == "OK") {
+                    $('.issue_vc').modaal('close');
+                    location.href = "/issued";
+                }
+            })
+        }
+
+        let domain = location.pathname;
+        let vcurl = document.location.href.replace("ticket", "vc");
+        let url = "openid-vc://?request_uri=" + vcurl;
+        let qr = document.getElementById("qrcode");
+
+        let band = document.getElementsByName("band");
+        band.forEach(
+            r => r.addEventListener("change" ,
+                e => {
+                    qr.innerHTML = '';
+                    new QRCode(qr, url + '/' + e.target.id.slice(-1));
+                }
+            )
+        );
+
+        $(".my_Button").modaal({
+            content_source: '#issue_vc',
+            after_open: function () {
+                if (/iPhone/i.test(navigator.userAgent)) {
+                    window.location.replace(url);
+                } else if (/Android/i.test(navigator.userAgent)) {
+                    window.location.href = url;
+                }
+                interval = setInterval(checkStatus, 1000);
+            },
+            after_close: function () {
+                clearInterval(interval);
+            }
+        });
+    </script>
+</html>
+

@@ -4,6 +4,7 @@
 <head>
     <title>DIDチケット</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
     <link rel="stylesheet" href="stylesheets/did-wg-poc.css">
 </head>
     <body>
@@ -15,7 +16,7 @@
             </div>
 
             <div class="my_Box-Center">
-                <div class="my_Box" style="width: 90%;">
+                <div class="my_Box">
                     <p class="m0"><b>日時：</b>2023年2月11日（土）17:30 開場</p>
                     <p class="m1"><b>会場：</b><a href="http://neweight.tokyo/">ニューエイト</a><br>
                     東京都大田区蒲田5-44-14 蒲田佐藤ビルB1F</p>
@@ -28,7 +29,7 @@
             </div>
 
             <div class="my_Box-Center">
-                <div class="my_Box" style="width:90%">
+                <div class="my_Box">
                     <table class="my_Table">
                         <thead class="my_Table-Head">
                             <tr class="my_Table-Head-Row">
@@ -74,9 +75,9 @@
                 <p>上記手順の 4. でアクセスするリンクをスマホでアクセスすると 5. のAuthenticatorは自動的に起動されます。</p>
                 <p>＜Authenticator操作画面説明＞</p>
                 <p style="margin-left: 1em;">下部ナビゲーションバーの右アイコン（検証済みID）</p>
-                <p style="margin-left: 2em;"><img src="images/vcicon.png" alt="下部ナビゲーションバーの右アイコン" style="width: 300px; height:auto; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);"></p>
+                <p style="margin-left: 2em;"><img src="images/vcicon.png" alt="下部ナビゲーションバーの右アイコン" style="width: 285px; height:auto; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);"></p>
                 <p style="margin-left: 1em;">上部アプリバーの右アイコン</p>
-                <p style="margin-left: 2em;"><img src="images/readericon.png" alt="上部アプリバーの右アイコン" style="width: 300px; height:auto; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);"></p>
+                <p style="margin-left: 2em;"><img src="images/readericon.png" alt="上部アプリバーの右アイコン" style="width: 285px; height:auto; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);"></p>
             </div>
 
             <div class="my_Box-Note">
@@ -86,8 +87,8 @@
                     <form
                         class="my_Box_Form"
                         method="POST"
-                        action="/sendmail"
-                        enctype="multipart/form-data"
+                        action="/mail"
+                        enctype="application/x-www-form-urlencoded"
                     >
                         <div class="my_Form-Item">
                             <p class="my_Form-Item-Label">
@@ -95,7 +96,7 @@
                             メールアドレス
                             </p>
                             <div class="my_Form-Item">
-                                <input type="text" class="my_Form-Item-Text" id="email" name="email" placeholder="Emailアドレス" required/>
+                                <input type="text" class="my_Form-Item-Text" id="email" name="email" placeholder="Emailアドレス" value="<%= email %>" required/>
                             </div>
                         </div>
 
@@ -134,7 +135,7 @@
             </div>
 
             <div class="my_Box-Center">
-                <p>Copyright (c) IIJ did-wg All Rights Reserved.</p>
+                <small>Copyright (c) IIJ did-wg All Rights Reserved.</small>
             </div>
         </div>
     </body>
