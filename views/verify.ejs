@@ -18,31 +18,23 @@
 
             <div class="my_Box-Center">
 
-                <div class="my_Box" style="width: 90%;"">
-                    <h3>AuthenticatorでQRコードを読み取ってください</h3>
+                <div class="my_Box" style="width: 90%;">
+                    <h3>デジタルチケットを提示してチェックインしてください</h3>
                     <div class="my_Box-Center">
-                        <div id="qrcode"></div>
+                        <div id="qrcode" style="width: 300px; height:auto; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);"></div>
                     </div>
                 </div>
             </div>
 
             <div class="my_Box-Note">
-                <span class="box-title">デジタルチケット保存手順</span>
+                <span class="box-title">チェックイン手順</span>
                 <ol>
-                    <li>Microsoft Authenticatorアプリを起動</li>
-                    <li>下部ナビゲーションバーの右アイコン「検証済みID」をタップ</li>
-                    <li>上部アプリバーの右アイコンをタップしてカメラを起動</li>
-                    <li>上記で表示されたQRコードを 3. で起動したカメラで読み込み</li>
-                    <li>デジタルチケットがダウンロードされるので保存</li>
+                    <li>表示された QR コードを長押しして「Authenticator で開く」を選択して Microsoft Authenticatorアプリを起動</li>
+                    <li>「クレデンシャル検証者と共有しますか？」と表示されたら、「共有」ボタンをタップしてデジタルチケットを提示</li>
+                    <li>スマホ画面に「要求は承認されました」のメッセージが出力されたらブラウザに戻る</li>
+                    <li>受付完了のメッセージとともに「ドリンクチケット受け取り」のフォームが表示されるので、受付担当に見せながらボタンを押してドリンクチケットを受け取ってください</li>
                 </ol>
-                <p>＜Authenticator操作画面説明＞</p>
-                <p style="margin-left: 1em;">下部ナビゲーションバーの右アイコン（検証済みID）</p>
-                <p style="margin-left: 2em;"><img src="/images/vcicon.png" alt="下部ナビゲーションバーの右アイコン" style="width: 285px; height:auto; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);"></p>
-                <p style="margin-left: 1em;">上部アプリバーの右アイコン</p>
-                <p style="margin-left: 2em;"><img src="/images/readericon.png" alt="上部アプリバーの右アイコン" style="width: 285px; height:auto; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);"></p>
-
             </div>
-
 
             <div class="my_Box-Center">
                 <small>Copyright (c) IIJ did-wg All Rights Reserved.</small>
