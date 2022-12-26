@@ -1,6 +1,7 @@
 body {
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
 }
+
 .my_Container {
     display: grid;
     place-items: center;
@@ -8,47 +9,44 @@ body {
     box-sizing: border-box;
     width: 100%;
     height: auto;
-    word-break: break-all; 
+    word-break: normal;
+    overflow-wrap: break-word;
 }
   
 .my_Box {
     margin: 10px 0px 20px 0px;
     /*-- border: 1px solid #1b0303; --*/
-    width: 90%;
+    width: 95%;
     max-width: 1024px;
     height: auto;
-    word-break: break-all; 
 }
 
 .my_Box-Center {
     display: grid;
     place-items: center;
-    /*--border: 1px solid #DE6901; /*-- オレンジ --*/
+    /*--border: 1px solid #DE6901; --*/
     width: 100%;
     max-width: 1024px;
     height: auto;
-    word-break: break-all; 
 }
 
 .my_Box-BackImage {
     margin: 10px 0px 20px 0px;
     /*-- border: 1px solid #1b0303; --*/
-    width: 95%;
+    width: 100%;
     max-width: 1024px;
     height: 100px;
     padding-top: 50px;
-    word-break: break-all; 
     background-image: url("");
     background-repeat: no-repeat;
     background-size: cover;
-    /* background-position:center bottom;   /* 画像の表示位置を指定 */
+    /*-- background-position:center bottom;   --*/
 }
 
 .my_Box-Note {
-    width: 90%;
+    width: 95%;
     max-width: 1024px;
     height: auto;
-    word-break: break-word; 
     position: relative;
     margin: 2em 0em 0.5em 0em;
     padding: 0.5em 0em 1.5em 0em;
@@ -72,7 +70,6 @@ body {
 .my_Box-Note p {
     margin: 0em; 
     padding: 1em 1em 0.5em 1em;
-    word-break: break-word; 
 }
 
 .my_Box-Note ol {
@@ -133,12 +130,12 @@ body {
     position: relative;
     width: 300px;
     padding: 1.2em 2em;
-    border: 1px solid #DDDDDD;
+    border: 1px solid #CCCCCC;
     border-radius: 5px;
     color: #333;
     font-size: 18px;
     font-weight: 700;
-    background-color: #GGG;
+    background-color: #EEEEEE;
     transition: 0.3s ease-in-out;
 }
 
@@ -178,7 +175,7 @@ body {
   width: 100%;
   display: flex;
   align-items: center;
-  /*-- border: 1px solid #9aef4b; /*-- 緑 --*/
+  /*-- border: 1px solid #9aef4b; --*/
 }
 
 .my_Form-Item-Block {
@@ -187,7 +184,7 @@ body {
   width: 100%;
   display: block;
   align-items: center;
-  /*-- border: 1px solid #9aefFF; /*-- 水色 --*/
+  /*-- border: 1px solid #9aefFF; --*/
 }
 
 .my_Form-Item:nth-child(5) {
@@ -200,7 +197,7 @@ body {
   letter-spacing: 0em;
   font-weight: bold;
   font-size: 18px;
-  /*-- border: 1px solid #9a20FF; /*-- 紫 --*/
+  /*-- border: 1px solid #9a20FF; --*/
 }
 
 .my_Form-Item-Label.isMsg {
@@ -231,7 +228,7 @@ body {
   flex: 1;
   width: 100%;
   max-width: 450px;
-  background: #eaedf2;
+  background: #EEEEEE;
   font-size: 18px;
 }
 
@@ -277,15 +274,19 @@ body {
   font-size: 20px;
 }
 
+
 @media screen and (max-width: 959px) {
     .my_Container {
-        font-size: 90%;  
+        font-size: 100%;  
+    }
+    .my_Box-BackImage {
+        height: 85px;
     }
     .my_Table {
-        font-size: 90%;
+        font-size: 100%;
     }
     .my_RadioInput-LabelText {
-        font-size: 90%;      
+        font-size: 100%;      
     }
     .my_Form {
         margin-top: 10px;
@@ -307,7 +308,7 @@ body {
         max-width: inherit;
         display: flex;
         align-items: center;
-        font-size: 15px;
+        font-size: 16px;
     }
     .my_Form-Item-Label.isMsg {
         margin-top: 0;
@@ -317,7 +318,7 @@ body {
         padding-top: 4px;
         padding-bottom: 4px;
         width: 32px;
-        font-size: 10px;
+        font-size: 14px;
     }
     .my_Form-Item-Text {
         margin-left: 0px;
@@ -325,14 +326,14 @@ body {
         height: 40px;
         flex: inherit;
         max-width: 400px;
-        font-size: 15px;
+        font-size: 16px;
     }
     .my_Form-Item-Textarea {
         margin-top: 18px;
         margin-left: 0;
         height: 200px;
         flex: inherit;
-        font-size: 15px;
+        font-size: 16px;
     }
     .my_Form-Item-Radio {
         margin-left: 0px;
@@ -351,13 +352,16 @@ body {
 
 @media screen and (max-width: 480px) {
     .my_Container {
-        font-size: 85%;  
+        font-size: 95%;  
+    }
+    .my_Box-BackImage {
+        height: 70px;
     }
     .my_Table {
-        font-size: 85%;
+        font-size: 95%;
     }
     .my_RadioInput-LabelText {
-        font-size: 85%;      
+        font-size: 95%;      
     }
     .my_Form {
         margin-top: 10px;
@@ -379,7 +383,7 @@ body {
         max-width: inherit;
         display: flex;
         align-items: center;
-        font-size: 15px;
+        font-size: 16px;
     }
     .my_Form-Item-Label.isMsg {
         margin-top: 0;
@@ -389,7 +393,7 @@ body {
         padding-top: 4px;
         padding-bottom: 4px;
         width: 32px;
-        font-size: 10px;
+        font-size: 12px;
     }
     .my_Form-Item-Text {
         margin-left: 0px;
@@ -397,14 +401,14 @@ body {
         height: 40px;
         flex: inherit;
         max-width: 400px;
-        font-size: 15px;
+        font-size: 16px;
     }
     .my_Form-Item-Textarea {
         margin-top: 18px;
         margin-left: 0;
         height: 200px;
         flex: inherit;
-        font-size: 15px;
+        font-size: 16px;
     }
     .my_Form-Item-Radio {
         margin-left: 0px;
@@ -420,3 +424,4 @@ body {
         font-size: 16px;
     }
 }
+
