@@ -106,19 +106,19 @@
             <!--モーダル-->
             <div class="my_Box-Center">
                 <div id="issue_vc" class="issue_vc" style="display:none;">
-                    <p class="small-text">
-                        Microsoft Authenticator で読み取ることでデジタルチケットがダウンロードされます
-                    </p>
-                    <p>
-                        <div id="qrText">
-                            <div id="qrcode"></div>
+                    <div style="display: grid; place-items: center;">
+                        <div style="margin: 0 auto; width: 50%; min-width: 300px; overflow-wrap: break-word;">
+                            Microsoft Authenticator で読み取ることでデジタルチケットがダウンロードされます
                         </div>
-                    </p>
+                        <div id="qrcode"></div>
+                    </div>
                 </div>
                 <div id="error_vc" class="error_vc" style="display:none;">
-                    <p class="error">
-                        エラーが発生しました
-                    </p>
+                    <div class="error" style="display: grid; place-items: center;">
+                        <div style="margin: 0 auto; width: 50%; min-width: 300px; overflow-wrap: break-word;">
+                            エラーが発生しました
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
