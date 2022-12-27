@@ -154,13 +154,15 @@
         let vcurl = document.location.href.replace("ticket", "vc");
         let url = "openid-vc://?request_uri=" + vcurl;
         let qr = document.getElementById("qrcode");
+        let bandid = 0;
 
         let band = document.getElementsByName("band");
         band.forEach(
             r => r.addEventListener("change" ,
                 e => {
+                    bandid = e.target.id.slice(-1);
                     qr.innerHTML = '';
-                    new QRCode(qr, url + '/' + e.target.id.slice(-1));
+                    new QRCode(qr, url + '/' + bandid);
                 }
             )
         );
@@ -169,9 +171,9 @@
             content_source: '#issue_vc',
             after_open: function () {
                 if (/iPhone/i.test(navigator.userAgent)) {
-                    window.location.replace(url);
+                    window.location.replace(url + '/' + bandid);
                 } else if (/Android/i.test(navigator.userAgent)) {
-                    window.location.href = url;
+                    window.location.href = url + '/' + bandid;
                 }
                 interval = setInterval(checkStatus, 1000);
             },
