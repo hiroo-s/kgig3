@@ -31,7 +31,7 @@ router.post('/:uuid', async function (req, res, next) {
             schemaUri: conf.domain + 'Kgig3Credential',
             vcSubject: {
                 "http://schema.org/name": "KAMATA GIG III",
-                "http://schema.org/startDate": new Date(2023, 1, 11),
+                "http://schema.org/startDate": "2023/2/11",
                 "http://schema.org/doorTime": "17:30",
                 "http://schema.org/startTime": "18:00",
                 "http://schema.org/performer": conf.performer[user.band],
@@ -63,7 +63,7 @@ router.post('/:uuid', async function (req, res, next) {
                 "statusListIndex": 1
             }
         },
-        "jti": "urn:pic:f6c90a9ae07d41b386cec5728f50f3a1",
+        "jti": "urn:pic:" + uuidv4(),
         "iss": conf.did,
         "sub": walletDID,
         "iat": now,

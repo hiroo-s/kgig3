@@ -33,7 +33,7 @@ router.get('/:uuid', async function (req, res, next) {
                     label: "タイトル"
                 },
                 "vc.credentialSubject.http://schema.org/startDate": {
-                    type: "Date",
+                    type: "String",
                     label: "開催日"
                 },
                 "vc.credentialSubject.http://schema.org/doorTime": {
@@ -67,7 +67,7 @@ router.get('/:uuid', async function (req, res, next) {
     let payload = {
         id: "NGUxY2VjZDEtYzc2Ni00NzY3LWI2MTgtZDhjNjQ1MTM2MmNmdmVyaWZpZWRjcmVkZW50aWFsZXhhbXBsZQ",
         display: {
-            locale: "en-US",
+            locale: "ja",
             contract: conf.domain + "manifest/" + req.params.uuid,
             card: {
                 title: vcTitle[vcName].title,
@@ -95,7 +95,48 @@ router.get('/:uuid', async function (req, res, next) {
                     {
                         id: "https://self-issued.me",
                         encrypted: false,
-                        claims: [],
+                        claims: [
+                            {
+                                "claim": "$.name",
+                                "required": false,
+                                "indexed": true
+                            },
+                            {
+                                "claim": "$.startDate",
+                                "required": false,
+                                "indexed": true
+                            },
+                            {
+                                "claim": "$.doorTime",
+                                "required": false,
+                                "indexed": true
+                            },
+                            {
+                                "claim": "$.startTime",
+                                "required": false,
+                                "indexed": true
+                            },
+                            {
+                                "claim": "$.performer",
+                                "required": false,
+                                "indexed": true
+                            },
+                            {
+                                "claim": "$.location",
+                                "required": false,
+                                "indexed": true
+                            },
+                            {
+                                "claim": "$.url",
+                                "required": false,
+                                "indexed": true
+                            },
+                            {
+                                "claim": "$.email",
+                                "required": false,
+                                "indexed": true
+                            }
+                        ],
                         required: false,
                         configuration: "https://self-issued.me",
                         client_id: "",
