@@ -6,6 +6,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
     <link rel="stylesheet" href="/stylesheets/did-wg-poc.css">
+    <script src="/javascripts/jquery-3.4.1.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LcKgN0jAAAAAHn8KwqF4XJq58JWwpRPOcBU1mJP"></script>
 </head>
     <body>
 
@@ -86,6 +88,7 @@
                 <div class="my_Form">
 
                     <form
+                        id="ticket-form"
                         class="my_Box_Form"
                         method="POST"
                         action="/mail"
@@ -140,4 +143,21 @@
             </div>
         </div>
     </body>
+    <script>
+        $('#ticket-form').submit(function(event) {
+            event.preventDefault();
+            let form = $('#ticket-form');
+
+            grecaptcha.ready(function() {
+                grecaptcha.execute(
+                    '6LcKgN0jAAAAAHn8KwqF4XJq58JWwpRPOcBU1mJP',
+                    {action: 'issue_ticket'}
+                ).then(function(token) {
+                    form.prepend('<input type="hidden" name="token" value="' + token + '">');
+                    form.prepend('<input type="hidden" name="action" value="issue_ticket">');
+                    form.unbind('submit').submit();
+                });;
+            });
+        });
+    </script>
 </html>

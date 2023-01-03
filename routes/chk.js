@@ -46,4 +46,11 @@ router.get('/locals', function (req, res, next) {
         JSON.stringify(req.session.user));
 });
 
+router.get('/captcha', function (req, res, next) {
+    res.send(
+        JSON.stringify(req.app.locals.captcha)
+    );
+});
+
+
 module.exports = router;
