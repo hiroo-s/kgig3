@@ -52,5 +52,10 @@ router.get('/captcha', function (req, res, next) {
     );
 });
 
+router.get('/maillog', function (req, res, next) {
+    res.send(
+        JSON.stringify(req.app.locals.maillog)
+    );
+});
 
 module.exports = router;

@@ -41,6 +41,7 @@ app.use(session({
 app.use(db.db_init);
 app.locals.request = {};
 app.locals.captcha = [];
+app.locals.maillog = [];
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
