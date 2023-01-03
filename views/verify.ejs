@@ -2,11 +2,13 @@
 <html lang="ja">
 
 <head>
-    <title>DIDチケット 入場確認</title>
+    <title>DIDチケット チェックイン</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes">
-    <meta http-equiv="Cache-Control" content="no-cache">
     <link rel="stylesheet" href="/stylesheets/did-wg-poc.css">
+    <script src="/javascripts/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="/stylesheets/modaal.min.css">
+    <script src="/javascripts/modaal.min.js"></script>
     <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 </head>
     <body>
@@ -20,22 +22,45 @@
             <div class="my_Box-Center">
 
                 <div class="my_Box" style="width: 90%;">
-                    <h3>デジタルチケットを提示してチェックインしてください</h3>
-                    <div class="my_Box-Center">
-                        <div id="qrcode" style="width: auto; height:auto; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);"></div>
-                    </div>
+                    <h3>チェックインしてください</h3>
+                    <h4>IIJ 関係者で、あらかじめデジタルチケットをダウンロードされている方のみ対象です<br>
+                        ドリンクチケットの特典は先着20名様で終了となります</h4>
+                    <div class="my_Box-Center" style="margin-top: 2em;">
+                        <button class="my_Button" type="button" name="button">チェックイン</button>
+                    </p>
+                </div>
+
+
+                <div class="my_Box-Note">
+                    <span class="box-title">チェックイン手順</span>
+                    <ol>
+                        <li>チェックインのリンクにアクセスする</li>
+                        <li>iPhone の場合、「Authenticatorアプリで開く」の確認が表示されたら、それにしたがって Authenticator を起動<br>
+                            Authenticator に連携されない場合には、表示された QR コードを長押しして「Authenticator で開く」を選択して起動する</li>
+                        <li>Android の場合、Authenticator が連動して起動</li>
+                        <li>Authenticator アプリで「クレデンシャル検証者と共有しますか？」と表示されたら、「共有」ボタンをタップしてデジタルチケットを提示</li>
+                        <li>Authenticator 画面に「要求は承認されました」のメッセージが出力されたらブラウザに戻る</li>
+                        <li>ブラウザには受付完了のメッセージとともに「ドリンクチケット受け取り」のフォームが表示されるので、受付担当に見せながらボタンを押してドリンクチケットを受け取ってください</li>
+                    </ol>
                 </div>
             </div>
 
-            <div class="my_Box-Note">
-                <span class="box-title">チェックイン手順</span>
-                <ol>
-                    <li>iPhone の場合、表示された QR コードを長押しして「Authenticator で開く」を選択して Authenticator アプリを起動</li>
-                    <li>Android の場合、本ページの表示と連動して Authenticator アプリが起動</li>
-                    <li>Authenticator アプリにて「クレデンシャル検証者と共有しますか？」と表示されるので「共有」ボタンをタップしてデジタルチケットを提示</li>
-                    <li>画面に「要求は承認されました」のメッセージが出力されたらブラウザに戻る</li>
-                    <li>受付完了のメッセージとともに「ドリンクチケット受け取り」のフォームが表示されるので、受付担当に見せながらボタンを押してドリンクチケットを受け取ってください</li>
-                </ol>
+           <!--モーダル-->
+           <div class="my_Box-Center">
+            <div id="verify_vc" class="verify_vc" style="display:none;">
+                <div style="display: grid; place-items: center;">
+                    <div style="margin: 0 auto; width: 50%; min-width: 300px; overflow-wrap: break-word;">
+                        <p>Authenticator で読み取ることでデジタルチケットを提出します。</p>
+                    </div>
+                    <div id="qrcode"></div>
+                </div>
+            </div>
+            <div id="error_vc" class="error_vc" style="display:none;">
+                <div class="error" style="display: grid; place-items: center;">
+                    <div style="margin: 0 auto; width: 50%; min-width: 300px; overflow-wrap: break-word;">
+                        エラーが発生しました
+                    </div>
+                </div>
             </div>
 
             <div class="my_Box-Center">
@@ -47,11 +72,12 @@
     <script>
         let interval;
         let count = 300;
-        function checkStatus() {
+
+        function checkStatus () {
             count--;
             if (count < 0) {
                 clearInterval(interval);
-                location.href = "/verify";
+                window.location.href = "/verify";
             }
             // ２秒ごとに fetch する
             if (count % 2) {
@@ -59,24 +85,35 @@
             }
             fetch("/chk")
             .then(response => response.text())
-            .catch(error => { console.log(error) })
+            .catch(error => {console.log(error)})
             .then(response => {
                 if (response == "OK") {
                     location.href = "/verified";
                 } else if (response != "NG") {
                     console.log(response);
-                    location.href = "/verified";
+                    window.location.href = "/verified";
                 }
             });
         }
-        url = "openid-vc://?request_uri=<%= domain %>vp/<%= uuid %>";
+
+        let domain = location.pathname;
+        let url = "openid-vc://?request_uri=<%= domain %>vp/<%= uuid %>";
         let qr = document.getElementById("qrcode");
         new QRCode(qr, url);
-        interval = setInterval(checkStatus, 1000);
-        if (/iPhone/i.test(navigator.userAgent)) {
-            window.location.replace(url);
-        } else if (/Android/i.test(navigator.userAgent)) {
-            window.location.href = url;
-        }
+
+        $(".my_Button").modaal({
+            content_source: '#verify_vc',
+            after_open: function () {
+                if (/iPhone/i.test(navigator.userAgent)) {
+                    window.location.replace(url);
+                } else if (/Android/i.test(navigator.userAgent)) {
+                    window.location.href = url;
+                }
+                interval = setInterval(checkStatus, 1000);
+            },
+            after_close: function () {
+                clearInterval(interval);
+            }
+        });
     </script>
 </html>
