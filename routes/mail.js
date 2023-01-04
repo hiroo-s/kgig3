@@ -1,8 +1,9 @@
-var express = require('express');
-var fetch = require('node-fetch');
-var sgMail = require('@sendgrid/mail');
-var router = express.Router();
-var db = require('./db');
+const express = require('express');
+const fetch = require('node-fetch');
+const sgMail = require('@sendgrid/mail');
+const nodemailer = require('nodemailer');
+const router = express.Router();
+const db = require('./db');
 
 const RECAPTCHA_API_URL = 'https://www.google.com/recaptcha/api/siteverify';
 const RECAPTCHA_SITE_SECRET = '6LcKgN0jAAAAAHkt3bSSJIxd_x4lHzEG6mQYzfpo';
@@ -82,6 +83,41 @@ async function recaptchav3(req) {
 }
 
 function sendmail(req, username, url) {
+    function mailLog(log) {
+        req.app.locals.maillog.push(log);
+        let len = req.app.locals.maillog.length;
+        if (len > 10) {
+            req.app.locals.maillog.splice(0, len - 10);
+        }
+    };
+
+    const porter = nodemailer.createTransport({
+        service: 'Gmail',
+        port: 465,
+        secure: true,
+        auth: {
+            user: 'kamatagig2023@gmail.com',
+            pass: process.env.GMAIL_API_KEY
+        }
+    });
+
+    porter.sendMail({
+        from: 'kamatagig2023@gmail.com',
+        to: username,
+        subject: 'KGIG III ドリンクチケット ダウンロード',
+        text: "このメールに返信しないでください。\r\n\r\n" +
+            "こちらのURLにアクセスしてデジタルチケットをダウンロードしてください。\r\n" + url
+    }, function (err, info) {
+        if (err) { // エラーの場合 --- (*8)
+            mailLog([username, new Date(), info, err]);
+            return
+        }
+        // 正しく送信できた場合 --- (*9)
+        mailLog([username, new Date(), info]);
+    })
+}
+
+function sendmail_sendgrid(req, username, url) {
     function mailLog(log) {
         req.app.locals.maillog.push(log);
         let len = req.app.locals.maillog.length;
