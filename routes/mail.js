@@ -37,7 +37,7 @@ router.post('/', async function (req, res, next) {
     }
 
     let uuid = await db.getUuid(username);
-    let url = req.protocol + '://' + req.get('host') + '/ticket/' + uuid;
+    let url = 'https://' + req.get('host') + '/ticket/' + uuid;
 
     // メール送信
     if (!req.body['forTest']) {
