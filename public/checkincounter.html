@@ -2,7 +2,7 @@
 <html lang="ja">
 
 <head>
-    <title>DIDチケット チェックイン</title>
+    <title>DIDチケット チェックイン（受付用）</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=yes"> 
     <link rel="stylesheet" href="/stylesheets/did-wg-poc.css">
@@ -35,9 +35,11 @@
                 <ol>
                     <li>スマホカメラで上記QRコードから(Chrome、Safari などのブラウザ経由で）Webページにアクセスする（iPhone コントロールセンタのリーダ等から起動される組込みブラウザはサポート対象外）</li>
                     <li>表示された Web ページでチェックインのボタンを押下する</li>
-                    <li>iPhone の場合、「Authenticatorアプリで開く」の確認が表示されたら、それにしたがって Authenticator を起動<br>
-                        Authenticator に連携されない場合には、表示された QR コードを長押しして「Authenticator で開く」を選択して起動する</li>
-                    <li>Android の場合、Authenticator が連動して起動</li>
+                        <ul>
+                            <li><span style="font-weight: bold;">iPhone の場合：</span>「Authenticatorアプリで開く」の確認が表示されたら、それにしたがって Authenticator を起動。
+                            Authenticator に連携されない場合には、表示された QR コードを長押しして「Authenticator で開く」を選択して起動する</li>
+                            <li><span style="font-weight: bold;">Android の場合：</span>Authenticator が連動して起動する</li>
+                        </ul>
                     <li>Authenticator アプリで「クレデンシャル検証者と共有しますか？」と表示されたら、「共有」ボタンをタップしてデジタルチケットを提示</li>
                     <li>Authenticator 画面に「要求は承認されました」のメッセージが出力されたらブラウザに戻る</li>
                     <li>ブラウザには受付完了のメッセージとともに「ドリンクチケット受け取り」のフォームが表示されるので、受付担当に見せながらボタンを押してドリンクチケットを受け取ってください</li>
