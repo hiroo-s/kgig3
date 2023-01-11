@@ -114,7 +114,7 @@ function sendmail(req, username, url) {
             " 1. 事前に Microsoft Authenticator をスマホにインストール\r\n" +
             " 2. 上記リンクからアクセスするページにて、知り合いの「出演者」を選択して\r\n" +
             "    「デジタルチケットダウンロード」ボタンをクリックする\r\n\r\n" +
-            "    ・スマホでリンクをアクセスした場合は 8.へ\r\n" +
+            "    ・スマホでリンクをアクセスした場合は Authenticator と自動連携され 8.へ\r\n" +
             "    ・PC でリンクをアクセスした場合は 3.へ\r\n\r/n" +
             " 3. Web ページに QR コードが表示\r\n" +
             " 4. Authenticator アプリを起動\r\n" +
