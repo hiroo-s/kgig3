@@ -112,7 +112,8 @@ function sendmail(req, username, url) {
             "\r\n\r\n" +
             "◇ デジタルチケットのダウンロード手順：\r\n\r\n" +
             "[事前準備]\r\n" +
-            "チケットをダウンロードするスマホに Microsoft Authenticator をインストールする。\r\n\r\n" +
+            "チケットをダウンロードするスマホに Microsoft Authenticator をインストールする。\r\n" +
+            "すでにインストール済の場合、最新版にバージョンアップする。\r\n\r\n" +
             "[手順]\r\n" +
             "以下、Authenticator をインストールしたスマホで 1.から操作することを推奨。\r\n\r\n" +
             " 1. 上記リンクからアクセスするページにて、知り合いの「出演者」を選択して\r\n" +
