@@ -78,10 +78,9 @@ router.post('/:uuid', async function (req, res, next) {
     res.set('Content-Type', 'application/json');
     res.send('{"vc":"' + jwt + '"}');
 
-    // /complete で使う
-    req.app.locals.request[uuid] = {
-        vcid: payload.vc.credentialStatus.id
-    };
+    // VP に使う VC の id
+    let vcid = payload.vc.credentialStatus.id;
+    await db.setVcId(req.params.uuid, vcid);
 });
 
 module.exports = router;

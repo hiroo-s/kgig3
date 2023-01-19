@@ -17,10 +17,6 @@ router.post('/:uuid', async function (req, res, next) {
     // POST data のチェックは省略
     // let data = req.body;
 
-    let vcid = req.app.locals.request[req.params.uuid].vcid;
-    await db.setVcId(req.params.uuid, vcid);
-    delete req.app.locals.request[req.params.uuid];
-
     res.set('Content-Type', 'text/plain');
     res.send('Accepted');
 });
