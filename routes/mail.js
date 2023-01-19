@@ -75,11 +75,7 @@ async function recaptchav3(req) {
         req.app.locals.captcha.splice(0, len - 10);
     }
 
-    if ('success' in json) {
-        return json.score > 0.5;
-    } else {
-        return false;
-    }
+    return !!json.success && json.score > 0.5;
 }
 
 function sendmail(req, username, url) {
