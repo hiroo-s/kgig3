@@ -161,6 +161,48 @@ body {
       border-color: #FFF;
 }
 
+.my_Button-icon {
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    position: relative;
+    width: 300px;
+    padding: 1.2em 2em;
+    border: 1px solid #CCCCCC;
+    border-radius: 5px;
+    color: #333;
+    font-size: 18px;
+    font-weight: 700;
+    background-color: #EEEEEE;
+    transition: 0.3s ease-in-out;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    background-size: 50px;    
+}
+
+.my_Button-icon:after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    width: 5px;
+    height: 5px;
+    border-top: solid 3px #333333;
+    border-right: solid 3px #333333;
+    transform: rotate(45deg);
+}
+
+.my_Button-icon:hover {
+    background: #313131;
+    color: #FFF;
+    background-image: url("");
+    background-repeat: no-repeat;
+    background-position: 10px 50%;
+    background-size: 50px;
+}
+
 .my_Form {
   margin-top: 10px;
   margin-left: auto;
