@@ -33,18 +33,30 @@
             
             <div class="my_Box-Note"  style="padding: 0.5em 0em 0.5em 0em;">
                 <span class="box-title">チェックイン手順</span>
-                <ol>
+                <ol start="1" style="margin-bottom: 0;">
                     <li>スマホカメラで上記QRコードから(Chrome、Safari などのブラウザ経由で）Webページにアクセスする（iPhone コントロールセンタのリーダ等から起動される組込みブラウザはサポート対象外）</li>
-                    <li>表示された Web ページでチェックインのボタンを押下する</li>
-                        <ul>
-                            <li><span style="font-weight: bold;">iPhone の場合：</span>「Authenticatorアプリで開く」の確認が表示されたら、それにしたがって Authenticator を起動。
-                            Authenticator に連携されない場合には、表示された QR コードを長押しして「Authenticator で開く」を選択して起動する</li>
-                            <li><span style="font-weight: bold;">Android の場合：</span>Authenticator が連動して起動する</li>
-                        </ul>
-                    <li>Authenticator アプリで「クレデンシャル検証者と共有しますか？」と表示されたら、「共有」ボタンをタップしてデジタルチケットを提示</li>
-                    <li>Authenticator 画面に「要求は承認されました」のメッセージが出力されたらブラウザに戻る</li>
-                    <li>ブラウザには受付完了のメッセージとともに「ドリンクチケット受け取り」のフォームが表示されるので、受付担当に見せながらボタンを押してドリンクチケットを受け取ってください</li>
                 </ol>
+                <div style="display: flex;">
+                    <div style="display: block; padding-top: 0;">
+                        <ol start="2" style="margin-top: 0;">
+                            <li>表示された Web ページでチェックインのボタンを押下する</li>
+                                <ul style="marker-offset: 5em; margin-left: -1em;">
+                                    <li><span style="font-weight: bold;">iPhone の場合：</span>「Authenticatorアプリで開く」の確認が表示されたら、それにしたがって Authenticator を起動。
+                                        Authenticator に連携されない場合には、表示された QR コードを長押しして「Authenticator で開く」を選択して起動する</li>
+                                    <li><span style="font-weight: bold;">Android の場合：</span>Authenticator が連動して起動する</li>
+                                </ul>                    
+                            <li>Authenticator アプリで「クレデンシャル検証者と共有しますか？」と表示されたら、「共有」ボタンをタップしてデジタルチケットを提示</li>
+                            <li>Authenticator 画面に「要求は承認されました」のメッセージが出力されたら<span style="font-weight: bold;">ブラウザに戻る</span></li>
+                            <li>ブラウザには受付完了のメッセージとともに「ドリンクチケット受け取り」のフォームが表示されるので、<span style="font-weight: bold;">受付担当に見せながらボタンを押して</span>ドリンクチケットを受け取ってください</li>
+                        </ol>
+                    </div>
+                    <div style="display: block;">
+                        <figure>
+                           <img src="/images/checkinscreen.png" alt="チェックイン" style="width: 220px; height:auto; box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);">
+                        </figure>
+                    </div>
+                </div>
+
             </div>
 
 
