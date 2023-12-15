@@ -98,7 +98,7 @@ function sendmail(req, username, url) {
     });
 
     porter.sendMail({
-        from: 'KAMATA GIG III <kamatagig2023@gmail.com>',
+        from: 'KAMATA GIG IV <kamatagig2023@gmail.com>',
         to: username,
         subject: 'KAMATA GIG III デジタルチケット申込み受付',
         text: "KAMATA GIG III デジタルチケット申込みいただきありがとうございます。\r\n" +
@@ -149,7 +149,7 @@ function sendmail_sendgrid(req, username, url) {
     let msg = {
         to: username,
         from: 'did-wg@iij.ad.jp',
-        subject: 'KGIG III ドリンクチケット ダウンロード',
+        subject: 'KGIG IV ドリンクチケット ダウンロード',
         text: "このメールに返信しないでください。\r\n\r\n" +
             "こちらのURLにアクセスしてデジタルチケットをダウンロードしてください。\r\n" + url
     };
