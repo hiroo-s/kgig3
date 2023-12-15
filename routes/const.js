@@ -6,9 +6,11 @@ const domain = 'https://kgig3.azurewebsites.net/';
 
 const performer = {
     1: 'IIJ けいおん部 ブルースブラザーズバンド',
-    2: 'ARP',
-    3: 'ONOBAND',
-    4: '（誰も知らない）'
+    2: 'しめ鯖☆甘し',
+    3: 'ZH(仮)',
+    4: 'ARP',
+    5: 'ONOBAND',
+    6: '（誰も知らない）'
 };
 
 module.exports.did = did;
