@@ -100,8 +100,8 @@ function sendmail(req, username, url) {
     porter.sendMail({
         from: 'KAMATA GIG IV <kamatagig2023@gmail.com>',
         to: username,
-        subject: 'KAMATA GIG III デジタルチケット申込み受付',
-        text: "KAMATA GIG III デジタルチケット申込みいただきありがとうございます。\r\n" +
+        subject: 'KAMATA GIG IV デジタルチケット申込み受付',
+        text: "KAMATA GIG IV デジタルチケット申込みいただきありがとうございます。\r\n" +
             "デジタルチケット申込みの心当たりのない方はお手数ですが削除ください。\r\n\r\n" + 
             "以下のリンクからデジタルチケットをスマホにダウンロードし、当日会場で提示ください。\r\n\r\n" + 
             url + 
