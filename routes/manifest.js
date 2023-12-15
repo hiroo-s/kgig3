@@ -24,8 +24,8 @@ router.get('/:uuid', async function (req, res, next) {
 
     const vcTitle = {
         Kgig3: {
-            title: '2023/2/11 17:30-',
-            description: 'デジタルチケット （KAMATA GIG III）',
+            title: '2024/2/3 17:20-',
+            description: 'デジタルチケット （KAMATA GIG IV）',
             instructions: 'デジタルチケットを保存します',
             claims: {
                 "vc.credentialSubject.http://schema.org/name": {
