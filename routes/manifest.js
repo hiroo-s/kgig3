@@ -72,10 +72,10 @@ router.get('/:uuid', async function (req, res, next) {
             card: {
                 title: vcTitle[vcName].title,
                 issuedBy: conf.domain,
-                backgroundColor: "#f02e2f",
+                backgroundColor: "#000000",
                 textColor: "#ffffff",
                 logo: {
-                    uri: conf.domain + "images/kamata-gig.png",
+                    uri: conf.domain + "images/kamata-gig-bk.png",
                     description: "logo"
                 },
                 description: vcTitle[vcName].description
