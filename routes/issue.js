@@ -27,7 +27,7 @@ router.post('/:uuid', async function (req, res, next) {
 
     const vcTitle = {
         Kgig3: {
-            exp: now + 31 * 24 * 60 * 60,
+            exp: now + 40 * 24 * 60 * 60,
             schemaUri: conf.domain + 'Kgig3Credential',
             vcSubject: {
                 "http://schema.org/name": "KAMATA GIG IV",
